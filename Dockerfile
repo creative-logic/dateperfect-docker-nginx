@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
     net-tools \
     telnet \
     git \
+    gnupg2 \
     curl \
     daemon 
  
