@@ -30,6 +30,11 @@ RUN npm install -g bower -y
 RUN npm install -g grunt 
 RUN npm install -g grunt-cli 
 
+RUN groupadd -r dateperfect && useradd -r -g dateperfect dateperfect
+RUN groupadd -r nginx && useradd -r -g nginx nginx
+RUN chmod -R 775 /etc/nginx/sites-available && chown -R dateperfect:nginx /etc/nginx/sites-available
+RUN chmod -R 775 /etc/nginx/sites-enabled && chown -R dateperfect:nginx /etc/nginx/sites-enabled
+
 EXPOSE 80 443
 
 CMD ["nginx", "-g", "daemon off;"]
